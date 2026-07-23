@@ -93,7 +93,19 @@ export function parseUrl(url: string): UrlParts {
  */
 export function classifyStatus(code: number): StatusCategory {
   // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+  if (code >= 100 && code <= 199) {
+    return "1xx Informativo";
+  } else if (code >= 200 && code <= 299) {
+    return "2xx Éxito";
+  } else if (code >= 300 && code <= 399) {
+    return "3xx Redirección";
+  } else if (code >= 400 && code <= 499) {
+    return "4xx Error del cliente";
+  } else if (code >= 500 && code <= 599) {
+    return "5xx Error del servidor";
+  } else {
+    return "Desconocido";
+  }
 }
 
 /**
