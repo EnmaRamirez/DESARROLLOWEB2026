@@ -126,7 +126,23 @@ export function classifyStatus(code: number): StatusCategory {
  */
 export function parseHeaders(text: string): Headers {
   // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+  const result: Headers = {};
+
+  if (!text) return result;
+
+  const lines = text.split("\n");
+  for (const line of lines) {
+    if (!line.trim() || !line.includes(":")){
+      continue;
+    }
+    const index = line.indexOf(":");
+    const key = line.slice(0, index).trim();
+    const value = line.slice(index + 1).trim();
+
+    result[key] = value;
+
+  }
+  return result;
 }
 
 /**
@@ -149,7 +165,24 @@ export function summarizeRequest(
   headersText: string,
 ): string {
   // TODO: tu implementación aquí
-  throw new Error("Not implemented");
+  const statusStr = classifyStatus(status);
+  const headersObj = parseHeaders(headersText);
+
+  let result = "Resumen de la petición\n";
+  result += "──────────────────────\n";
+  result += `URL:     ${url}\n`;
+  result += `Status:  ${status} (${statusStr})\n`;
+  result += `Headers:\n`;
+
+  const entries = Object.entries(headersObj);
+  if (entries.length === 0) {
+    result += "(Ninguna)";
+  } else {
+    for (const [key, value] of entries) {
+      result += `  • ${key}: ${value}\n`;
+    }
+  }
+  return result.trim();
 }
 
 // ---------------------------------------------------------------------------
