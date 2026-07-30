@@ -20,7 +20,7 @@
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="pagina1.html">Antigua Guatemala</a></li>
-          <li><a href="pagina2.html">Lago de Atitlan</a></li>
+          <li><a href="pagina2.html">Lago de Atitlán</a></li>
           <li><a href="pagina3.html">Parque Nacional Tikal</a></li>
         </ul>
       </nav>
@@ -36,26 +36,30 @@
            width="800" height="400"
            loading="lazy">
 
-      <p>Bienvenido a este increible sitio web donde descubriras sobre algunos de los lugares turísticos más importantes de Guatemala. En las siguientes páginas podrás conocer información
+      <p>Bienvenido a este increíble sitio web donde descubrirás sobre algunos de los lugares turísticos más importantes de Guatemala. En las siguientes páginas podrás conocer información
         sobre Antigua Guatemala, el lago de Atitlan y el Parque Nacional Tikal. </p>
 
       <!-- TODO: usa <dialog> + un boton con command/commandfor (Invoker Commands API) -->
       <dialog id="bienvenida">
-        <h3>Hola!</h3>
-        <p>Esto es un dialog modal nativo.</p>
+        <h3>¡Bienvenido!</h3>
+        <p>Gracias por visitar nuestro sitio sobre los lugares turísticos de Guatemala.
+          Aquí encontrararás información de algunos de los destinos más importantes del país.
+        </p>
         <form method="dialog">
           <button>Cerrar</button>
         </form>
       </dialog>
       <button command="show-modal" commandfor="bienvenida">
-        Abrir dialog
+       Conoce más
       </button>
 
       <!-- TODO: usa popover para un menu o tooltip -->
-      <button popovertarget="menu-ayuda">?</button>
+      <button popovertarget="menu-ayuda">Información</button>
       <div id="menu-ayuda" popover>
-        <h4>Ayuda</h4>
-        <p>Contenido del popover...</p>
+        <h4>Información</h4>
+        <p>Utiliza el menú de navegación para conocer Antigua Guatemala,
+          el Lago de Atitlán y el Parque Nacional Tikal. 
+        </p>
       </div>
 
       <!-- TODO: formulario con al menos 3 inputs (text, email, etc.) -->
@@ -66,10 +70,13 @@
         <label for="email">Email:</label>
         <input id="email" type="email" name="email" required>
 
-        <label for="mensaje">Mensaje:</label>
+        <label for="telefono">Teléfono:</label>
+        <input id="telefono" type="tel" name="telefono" required>
+
+        <label for="mensaje">¿Qué lugar turístico te gustaría visitar?</label>
         <textarea id="mensaje" name="mensaje" rows="4"></textarea>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Enviar Opinión</button>
       </form>
     </article>
 
@@ -77,7 +84,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Mi Sitio — Universidad Mariano Galvez</p>
+    <p>&copy; 2026 Mi Sitio — Universidad Mariano Gálvez</p>
   </footer>
 
 </body>
