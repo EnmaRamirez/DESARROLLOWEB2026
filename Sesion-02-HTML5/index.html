@@ -28,39 +28,60 @@
 
   <main>
     <article>
-      <h2>Bienvenido</h2>
+      <h2>Descubre la belleza de Guatemala</h2>
 
       <!-- TODO: usa <figure> + <figcaption> para una imagen con alt y loading="lazy" -->
-      <img src="img/quetzal.jpg"
-           alt="Imagen de bienvenida"
-           width="800" height="400"
+        <figure>
+           <img src="img/quetzal.jpg"
+           alt="Quetzal, ave nacional de Guatemala""
+           width="800" 
+           height="400"
            loading="lazy">
 
-      <p>Bienvenido a este increíble sitio web donde descubrirás sobre algunos de los lugares turísticos más importantes de Guatemala. En las siguientes páginas podrás conocer información
-        sobre Antigua Guatemala, el lago de Atitlan y el Parque Nacional Tikal. </p>
+           <figcaption>El quetzal es el ave nacional y uno de los símbolos más representativos de  Guatemala</figcaption>
+
+        </figure>
+     
+
+      <p>Guatemala es un país lleno de historia, cultura, y paisajes naturales que atraen
+        a visitantes de todo el mundo. En este sitio web conocerás algunos de sus destinos turísticos más destacados, 
+        como la ciudad colonial de Antigua Guatemala,
+        el impresionante Lago de Atitlán y el majestuoso Parque Nacional Tikal. 
+        Cada uno de estos lugares ofrece una experiencia única y memorable para quienes los visitan.
+        </p>
+        <section>
+          <h3>Lugares que encontrarás</h3>
+          <ul>
+            <li>🏛Antigua Guatemala</li>
+            <li>🌋Lago de Atitlán</li>
+            <li>🌿Parque Nacional Tikal</li>
+        </section>
 
       <!-- TODO: usa <dialog> + un boton con command/commandfor (Invoker Commands API) -->
       <dialog id="bienvenida">
         <h3>¡Bienvenido!</h3>
-        <p>Gracias por visitar nuestro sitio sobre los lugares turísticos de Guatemala.
-          Aquí encontrararás información de algunos de los destinos más importantes del país.
+        <p>Gracias por visitar nuestro sitio web. Esperamos que esta información  te
+         motive a conocer algunos de los lugares turísticos más hermosos de Guatemala. 
         </p>
         <form method="dialog">
           <button>Cerrar</button>
         </form>
       </dialog>
       <button command="show-modal" commandfor="bienvenida">
-       Conoce más
+       Explorar Guatemala
       </button>
 
       <!-- TODO: usa popover para un menu o tooltip -->
       <button popovertarget="menu-ayuda">Información</button>
       <div id="menu-ayuda" popover>
-        <h4>Información</h4>
-        <p>Utiliza el menú de navegación para conocer Antigua Guatemala,
+        <h4>Guía rápida</h4>
+        <p>Utiliza el menú superior para visitar cada uno de los destinos turísticos
+          y descubrir información e imágenes de  Antigua Guatemala,
           el Lago de Atitlán y el Parque Nacional Tikal. 
         </p>
       </div>
+      <h3>¡Comparte tu opinión!</h3>
+      <p>Nos interesa saber cuál de estos lugares turísticos te gustaría visitar.</p>
 
       <!-- TODO: formulario con al menos 3 inputs (text, email, etc.) -->
       <form action="#" method="POST">
@@ -82,9 +103,15 @@
 
     <!-- TODO: usa <aside> para contenido lateral -->
   </main>
+  <aside>
+    <h3>¿Sabias que...?</h3>
+    <p>Guatemala posee más de 30 volcanes, una gran riqueza arquelógica
+      y una diversidad cultural represntada por sus distintos pueblos mayas.
+    </p>
+  </aside>
 
   <footer>
-    <p>&copy; 2026 Mi Sitio — Universidad Mariano Gálvez</p>
+    <p>&copy; 2026 Lugares Turísticos de Guatemala | Universidad Mariano Gálvez de Guatemala</p>
   </footer>
 
 </body>
