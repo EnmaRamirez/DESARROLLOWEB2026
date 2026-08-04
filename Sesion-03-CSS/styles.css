@@ -1,5 +1,55 @@
 /* TODO: Reset y estilos base */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
 
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+    .container{
+        width: 90%;
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+
+h1 {
+    text-align: center;
+    color: #0b5d3b;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: 25px 0 15px;
+}
+section {
+    margin-bottom:40px;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+button {
+    cursor: pointer;
+    font-size: 16px;
+
+}
+ul {
+    padding-left: 20px;
+}
+p { 
+    margin-bottom: 15px;
+
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 /* TODO: Galería de productos */
 /* Desktop (>=1024px): 3 columnas usando CSS Grid */
 /* Mobile (<768px): 1 columna con scroll vertical */
@@ -18,3 +68,79 @@
 /* TODO: Diseño responsivo */
 /* - Usar @media queries para cambiar entre mobile y desktop */
 /* - La galería debe ser responsiva usando Grid + media queries */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.producto {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+}
+
+.producto-info {
+    padding: 15px;
+
+}
+
+.produto-info h2 {
+    font-size: 20px;
+    margin-botton: 10px;
+}
+
+.precio {
+    color: #0b5d3b;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0b5d3b;
+    color: white;
+    transition: 0.3s;
+}
+.btn-comprar:hover {
+    background-color: #158a57;
+}
+#Listado de tareas
+.tareas {
+    list-style: none;
+    padding: 0;
+}
+
+.tarea {
+    padding: 12px;
+}
+
+.tarea:nth-child(odd){
+    background-color: #f0f0f0;
+
+}
+.tarea:nth-child(even){
+    background-color: #ffffff;
+
+}
+.tarea label{
+    margin-left: 8px;
+}
+@media (max-width: 768px) {
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+}
+
