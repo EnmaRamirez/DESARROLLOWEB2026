@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Productos — Tarea CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Galería de Productos</h1>
+
+        <!-- TODO: Galería de productos
+             Cada tarjeta debe contener:
+             - Imagen del producto (usa placeholder o imágenes de ejemplo)
+             - Nombre del producto
+             - Precio
+             - Botón con texto "Comprar"
+             
+             Desktop (>=1024px): 3 columnas
+             Mobile (<768px): 1 columna con scroll vertical
+        -->
+        <section class="galeria">
+
+            <article class="producto">
+                <img src="https://via.placeholder.com/300x200/e0e0e0/333?text=Producto+1" alt="Producto 1">
+                <div class="producto-info">
+                    <h2>Nombre del Producto 1</h2>
+                    <p class="precio">Q99.99</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </article>
+
+            <article class="producto">
+                <img src="https://via.placeholder.com/300x200/e0e0e0/333?text=Producto+2" alt="Producto 2">
+                <div class="producto-info">
+                    <h2>Nombre del Producto 2</h2>
+                    <p class="precio">Q149.99</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </article>
+
+            <article class="producto">
+                <img src="https://via.placeholder.com/300x200/e0e0e0/333?text=Producto+3" alt="Producto 3">
+                <div class="producto-info">
+                    <h2>Nombre del Producto 3</h2>
+                    <p class="precio">Q199.99</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </article>
+
+            <article class="producto">
+                <img src="https://via.placeholder.com/300x200/e0e0e0/333?text=Producto+4" alt="Producto 4">
+                <div class="producto-info">
+                    <h2>Nombre del Producto 4</h2>
+                    <p class="precio">Q79.99</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </article>
+
+            <article class="producto">
+                <img src="https://via.placeholder.com/300x200/e0e0e0/333?text=Producto+5" alt="Producto 5">
+                <div class="producto-info">
+                    <h2>Nombre del Producto 5</h2>
+                    <p class="precio">Q249.99</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </article>
+
+            <article class="producto">
+                <img src="https://via.placeholder.com/300x200/e0e0e0/333?text=Producto+6" alt="Producto 6">
+                <div class="producto-info">
+                    <h2>Nombre del Producto 6</h2>
+                    <p class="precio">Q299.99</p>
+                    <button class="btn-comprar">Comprar</button>
+                </div>
+            </article>
+
+        </section>
+
+        <h2>To-Do List</h2>
+
+        <!-- TODO: Layout de Todo List
+             Lista de tareas estilizada con:
+             - Checkbox para marcar completado
+             - Texto de la tarea
+             - Diseño limpio y accesible
+        -->
+        <section class="todo-list">
+            <ul class="tareas" role="list">
+                <li class="tarea">
+                    <input type="checkbox" id="t1">
+                    <label for="t1">Aprender CSS Grid</label>
+                </li>
+                <li class="tarea">
+                    <input type="checkbox" id="t2">
+                    <label for="t2">Practicar Flexbox</label>
+                </li>
+                <li class="tarea">
+                    <input type="checkbox" id="t3">
+                    <label for="t3">Estudiar diseño responsivo</label>
+                </li>
+                <li class="tarea">
+                    <input type="checkbox" id="t4">
+                    <label for="t4">Hacer la tarea de CSS</label>
+                </li>
+                <li class="tarea">
+                    <input type="checkbox" id="t5">
+                    <label for="t5">Revisar novedades de CSS 2024</label>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>

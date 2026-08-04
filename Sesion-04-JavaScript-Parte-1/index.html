@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas — JS Parte 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>📝 Mis tareas</h1>
+
+        <form id="form-tarea" aria-label="Agregar nueva tarea">
+            <label for="input-tarea" class="sr-only">Nueva tarea</label>
+            <input
+                type="text"
+                id="input-tarea"
+                name="texto"
+                placeholder="¿Qué necesitas hacer?"
+                required
+                minlength="1"
+                maxlength="120"
+                autocomplete="off"
+            >
+            <button type="submit" id="btn-agregar">Agregar</button>
+        </form>
+
+        <nav class="filtros" aria-label="Filtros de tareas">
+            <button type="button" data-filtro="todas" class="filtro activo">Todas</button>
+            <button type="button" data-filtro="pendientes" class="filtro">Pendientes</button>
+            <button type="button" data-filtro="completadas" class="filtro">Completadas</button>
+        </nav>
+
+        <ul id="lista-tareas" aria-live="polite">
+            <!-- Las tareas se inyectan desde src/app.js -->
+        </ul>
+
+        <p id="contador" class="contador" aria-live="polite">0 tareas</p>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
