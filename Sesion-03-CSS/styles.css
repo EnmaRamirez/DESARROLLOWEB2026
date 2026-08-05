@@ -7,7 +7,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #eef3f2;
     color: #333;
     line-height: 1.6;
 }
@@ -21,7 +21,8 @@ body{
 h1 {
     text-align: center;
     color: #0b5d3b;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    font-size: 38px;
 }
 
 h2 {
@@ -71,53 +72,60 @@ a {
 .galeria {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 25px;
 }
 
 .producto {
-    background-color: white;
-    border: 1px solid #ddd;
+    background: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0,1);
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
 
+}
+.producto:hover {
+    transform: translateY(-5px);
 }
 
 .producto img {
     width: 100%;
-    height: auto;
+    height: 220px;
+    object-fit: contain;
 }
+  
 
 .producto-info {
-    padding: 15px;
+    padding: 20px;
 
 }
 
-.produto-info h2 {
-    font-size: 20px;
-    margin-botton: 10px;
+.producto-info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
 .precio {
     color: #0b5d3b;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 15px;
 }
 
 .btn-comprar {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #0b5d3b;
     color: white;
-    transition: 0.3s;
+    font-size: 16px;
 }
 .btn-comprar:hover {
     background-color: #158a57;
 }
-#Listado de tareas
+
+/*Listado de tareas*/
 .tareas {
     list-style: none;
     padding: 0;
