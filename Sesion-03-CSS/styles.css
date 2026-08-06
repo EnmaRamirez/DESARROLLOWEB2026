@@ -115,12 +115,16 @@ a {
     color: white;
     font-size: 16px;
     font-weight:bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .btn-comprar:hover {
     background-color: #158a57;
+    transform: scale(1.03);
 }
-
+.btn-comprar:focus {
+    outline: 3px solid #ffc107;
+    outline-offset: 3px;
+}
 
 /* TODO: To-Do List */
 /* - Lista sin marcadores (list-style: none) */
