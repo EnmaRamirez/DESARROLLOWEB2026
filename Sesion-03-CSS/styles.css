@@ -54,27 +54,16 @@ a {
 /* TODO: Galería de productos */
 /* Desktop (>=1024px): 3 columnas usando CSS Grid */
 /* Mobile (<768px): 1 columna con scroll vertical */
-
-/* TODO: Estilo de cada tarjeta de producto */
-/* - Imagen ocupa el ancho completo de la tarjeta */
-/* - Nombre del producto en negrita */
-/* - Precio destacado */
-/* - Botón "Comprar" estilizado con hover effect */
-
-/* TODO: To-Do List */
-/* - Lista sin marcadores (list-style: none) */
-/* - Checkbox con label accesible */
-/* - Tareas alternadas con color de fondo (zebra striping) */
-
-/* TODO: Diseño responsivo */
-/* - Usar @media queries para cambiar entre mobile y desktop */
-/* - La galería debe ser responsiva usando Grid + media queries */
 .galeria {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
-
+/* TODO: Estilo de cada tarjeta de producto */
+/* - Imagen ocupa el ancho completo de la tarjeta */
+/* - Nombre del producto en negrita */
+/* - Precio destacado */
+/* - Botón "Comprar" estilizado con hover effect */
 .producto {
     background: white;
     border-radius: 10px;
@@ -83,9 +72,11 @@ a {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
 
+
 }
 .producto:hover {
     transform: translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
 .producto img {
@@ -97,8 +88,11 @@ a {
 
 .producto-info {
     padding: 20px;
+    text-align:center;
 
 }
+
+
 
 .producto-info h2 {
     font-size: 22px;
@@ -120,12 +114,26 @@ a {
     background-color: #0b5d3b;
     color: white;
     font-size: 16px;
+    font-weight:bold;
+    transition: background-color 0.3s ease;
 }
 .btn-comprar:hover {
     background-color: #158a57;
 }
 
-/*Listado de tareas*/
+
+/* TODO: To-Do List */
+/* - Lista sin marcadores (list-style: none) */
+/* - Checkbox con label accesible */
+/* - Tareas alternadas con color de fondo (zebra striping) */
+.todo-list{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+
+}
 .tareas {
     list-style: none;
     padding: 0;
@@ -133,6 +141,12 @@ a {
 
 .tarea {
     padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.tarea input {
+    margin-right: 10px;
 }
 
 .tarea:nth-child(odd){
@@ -146,6 +160,13 @@ a {
 .tarea label{
     margin-left: 8px;
 }
+
+
+/* TODO: Diseño responsivo */
+/* - Usar @media queries para cambiar entre mobile y desktop */
+/* - La galería debe ser responsiva usando Grid + media queries */
+
+
 @media (max-width: 768px) {
     .galeria {
         grid-template-columns: 1fr;
