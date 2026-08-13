@@ -37,6 +37,22 @@ export function agregarTarea(texto) {
     // TODO: validar que `texto` no esté vacío (trim), crear el objeto
     // { id, texto, completada: false }, hacer push al array `tareas`
     // y devolverlo. Si el texto es vacío, devolver null.
+    if (!texto) return null;
+    const textoLimpio = texto.trim();
+
+    if (textoLimpio === ""){
+        return null;
+    }
+
+    const tarea ={
+        id: generarId(),
+        texto: textoLimpio,
+        completada: false
+
+    };
+    tareas.push(tarea);
+    return tarea;
+
 }
 
 /**
@@ -47,6 +63,10 @@ export function agregarTarea(texto) {
 export function eliminarTarea(id) {
     // TODO: filtrar `tareas` para quitar la que tenga ese id.
     // Devuelve true si eliminó al menos una, false si no.
+    const cantidadInicial = tareas.length;
+
+    tareas = tareas.filter((tarea)=> tarea.id !== id);
+    return tareas.length < cantidadInicial;
 }
 
 /**
