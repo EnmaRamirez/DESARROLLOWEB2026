@@ -1,0 +1,14 @@
+{
+  "name": "tarea-node-procesador-logs",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tarea: Procesador de logs con Streams y testing — Desarrollo Web Sesión 6",
+  "scripts": {
+    "test": "node --test tests/grader.test.js",
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["umg", "node", "streams", "testing", "es-modules", "tarea"],
+  "license": "UNLICENSED",
+  "dependencies": {}
+}

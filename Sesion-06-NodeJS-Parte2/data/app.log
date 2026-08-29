@@ -1,0 +1,8 @@
+[2026-08-20 10:00:01] INFO  Servidor iniciado en :3000
+[2026-08-20 10:00:15] ERROR Conexión a base de datos fallida
+[2026-08-20 10:00:20] INFO  Petición GET /api/productos 200
+[2026-08-20 10:00:45] ERROR Stock insuficiente en producto #12
+[2026-08-20 10:01:10] INFO  Petición POST /api/vender 201
+[2026-08-20 10:02:00] WARN  Tiempo de respuesta elevado (2.3s)
+[2026-08-20 10:02:30] ERROR Excepción no controlada en validación
+[2026-08-20 10:03:00] INFO  Servidor detenido correctamente

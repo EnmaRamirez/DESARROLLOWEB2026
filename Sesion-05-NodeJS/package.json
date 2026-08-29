@@ -1,0 +1,14 @@
+{
+  "name": "tarea-node-servidor-mensajes",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tarea: Servidor HTTP con Node.js puro — Desarrollo Web Sesión 5",
+  "scripts": {
+    "test": "node --test tests/grader.test.js",
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["umg", "node", "http", "events", "fs", "tarea"],
+  "license": "UNLICENSED",
+  "dependencies": {}
+}
