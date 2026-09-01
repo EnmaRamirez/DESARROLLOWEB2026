@@ -12,12 +12,13 @@ const root = resolve(__dirname, '..');
 let app;
 let index;
 let tmpDir;
+import { pathToFileURL } from 'node:url'; // Asegúrate de que esta línea esté arriba o úsala directo abajo
 
 before(async () => {
     tmpDir = mkdtempSync(join(tmpdir(), 'dw-s6-'));
-    app = await import(resolve(root, 'src/app.js'));
-    // El barrel debe exportar lo mismo que app.js
-    index = await import(resolve(root, 'src/index.js'));
+    // Convertimos las rutas absolutas a URL de archivo válidas para que funcione en Windows
+    app = await import(pathToFileURL(resolve(root, 'src/app.js')).href);
+    index = await import(pathToFileURL(resolve(root, 'src/index.js')).href);
 });
 
 // ===========================================================
