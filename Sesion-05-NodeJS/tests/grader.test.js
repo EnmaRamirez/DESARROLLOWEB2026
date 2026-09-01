@@ -4,7 +4,7 @@ import { existsSync, mkdtempSync, readFileSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve, dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url'; // Añadido pathToFileURL para compatibilidad con Windows
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -14,7 +14,8 @@ let mod;
 let tmpDir;
 
 before(async () => {
-    mod = await import(resolve(root, 'src/app.js'));
+    // Convertimos la ruta absoluta en una URL de archivo válida para que funcione en Windows
+    mod = await import(pathToFileURL(resolve(root, 'src/app.js')).href);
     tmpDir = mkdtempSync(join(tmpdir(), 'dw-s5-'));
 });
 
@@ -214,12 +215,11 @@ describe('Servidor HTTP (integración)', () => {
     });
 
     it('una ruta inexistente responde 404', async () => {
-        const res = await fetch(`${baseUrl}/no-existe`);
+        const res = await fetch(`${baseUrl}/ruta-invalida`);
         assert.equal(res.status, 404);
     });
 
-    it('el logger registra eventos de las peticiones', () => {
-        assert.ok(lineas.length > 0, 'El logger debería haber registrado al menos un evento');
+    it('el logger registra eventos de las peticiones', async () => {
+        assert.ok(lineas.length > 0, 'El logger no registró ningún evento');
     });
 });
-
