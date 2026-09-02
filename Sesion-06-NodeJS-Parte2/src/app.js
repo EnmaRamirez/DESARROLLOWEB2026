@@ -96,7 +96,8 @@ export async function leerLineas(ruta) {
  * @returns {string}
  */
 export function rutaAbsoluta(rutaRelativa) {
-    throw new Error('Not implemented: rutaAbsoluta');
+    //importante: no uses path.resolve, solo join con __dirname
+   return join(__dirname, rutaRelativa);
 }
 
 /**
@@ -108,5 +109,36 @@ export function rutaAbsoluta(rutaRelativa) {
  * @returns {Record<string, string>}
  */
 export function parsearEnv(contenido) {
-    throw new Error('Not implemented: parsearEnv');
+    const config = {};
+
+    if (!contenido || typeof contenido !== 'string') {
+        return config;
+    }
+    
+    const lineas = contenido.split(/\r?\n/);
+
+    for (const linea of lineas) {
+        const lineaLimpia = linea.trim();
+
+        if (!lineaLimpia || lineaLimpia.startsWith('#')) {
+             continue; // Ignorar líneas vacías o comentarios
+
+        }
+         const indiceSigno = lineaLimpia.indexOf('=');  
+         if (indiceSigno === -1) continue; 
+
+
+        const clave = lineaLimpia.substring(0, indiceSigno).trim();
+        const valor = lineaLimpia.substring(indiceSigno + 1).trim();
+
+        if (clave){
+            config[clave]= valor;
+        }
+        
+
+    }
+    return config;
+
+
+
 }
