@@ -73,7 +73,42 @@ export function generarId() {
  * @returns {Promise<number>} cantidad de líneas que coincidieron (0 si no hay).
  */
 export async function filtrarLogs(origen, destino, texto) {
-    throw new Error('Not implemented: filtrarLogs');
+    let contadorCoincidencias = 0;
+    let acumuladorBuffer = '';
+
+    const { Transform } = await import('node:stream');
+
+    const filtroTransform = new Transform({
+        transform(chunk, encoding, callback) {
+            acumuladorBuffer += chunk.toString();
+            const lineas = acumuladorBuffer.split(/\r?\n/);
+            acumuladorBuffer = lineas.pop() || ''; // Guardar la última línea incompleta
+
+            for (const linea of lineas) {
+                if (linea.includes(texto)) {
+                    contadorCoincidencias++;
+                    this.push(linea + '\n'); // Agregar línea al stream de salida
+                }
+            }
+            callback();
+        },
+        flush(callback) {
+            if (acumuladorBuffer && acumuladorBuffer.includes(texto)) {
+                contadorCoincidencias++;
+                this.push(acumuladorBuffer + '\n');
+                
+            }
+            callback();
+           
+        }
+    });
+
+    await pipeline(
+        createReadStream(origen),
+        filtroTransform,
+        createWriteStream(destino)
+    );
+    return contadorCoincidencias;
 }
 
 /**
@@ -85,7 +120,36 @@ export async function filtrarLogs(origen, destino, texto) {
  * @returns {Promise<string[]>}
  */
 export async function leerLineas(ruta) {
-    throw new Error('Not implemented: leerLineas');
+    return new Promise((resolve, reject) =>{
+        const stream = createReadStream(ruta, { encoding: 'utf8' });
+        let acumulador = '';
+        const lineas = [];
+
+        stream.on('data', (chunk) =>{
+            acumulador += chunk;
+            const partes = acumulador.split(/\r?\n/);
+            acumulador = partes.pop() || ''; 
+
+            for (const linea of partes){
+                const lineaLimpia = linea.trim();
+                if (lineaLimpia) {
+                    lineas.push(lineaLimpia);
+
+                }
+            }
+
+        });
+        stream.on('end', ()=>{
+            if (acumulador.trim()){
+                lineas.push(acumulador.trim());
+            }
+            resolve(lineas);
+        });
+        stream.on('error',(error)=>{
+            reject(error);
+        });
+        
+    });
 }
 
 /**
