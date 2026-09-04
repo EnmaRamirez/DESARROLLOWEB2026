@@ -160,8 +160,8 @@ export async function leerLineas(ruta) {
  * @returns {string}
  */
 export function rutaAbsoluta(rutaRelativa) {
-    //importante: no uses path.resolve, solo join con __dirname
-   return join(__dirname, rutaRelativa);
+       return join(__dirname, rutaRelativa);
+  
 }
 
 /**
