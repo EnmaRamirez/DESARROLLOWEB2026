@@ -34,7 +34,7 @@ export class RepositorioAlumnos {
      * @returns {Alumno[]}
      */
     listar() {
-        throw new Error('TODO: implementar RepositorioAlumnos.listar()');
+       return this.alumnos.map((alumno) => ({ ...alumno }));
     }
 
     /**
@@ -43,7 +43,8 @@ export class RepositorioAlumnos {
      * @returns {Alumno | undefined}
      */
     obtener(id) {
-        throw new Error('TODO: implementar RepositorioAlumnos.obtener()');
+        const alumno = this.alumnos.find((a) => a.id === id);
+        return alumno ? { ...alumno } : undefined;
     }
 
     /**
@@ -52,7 +53,15 @@ export class RepositorioAlumnos {
      * @returns {Alumno}
      */
     crear(datos) {
-        throw new Error('TODO: implementar RepositorioAlumnos.crear()');
+        const nuevoAlumno ={
+            id: `a-${this.siguienteId++}`,
+            nombre: datos.nombre,
+            apellido: datos.apellido,
+            email: datos.email,
+            edad: datos.edad !== undefined ? datos.edad : undefined
+        };
+        this.alumnos.push(nuevoAlumno);
+        return { ...nuevoAlumno };
     }
 
     /**
@@ -62,7 +71,16 @@ export class RepositorioAlumnos {
      * @returns {Alumno | undefined} el alumno actualizado, o undefined si no existe
      */
     actualizar(id, datos) {
-        throw new Error('TODO: implementar RepositorioAlumnos.actualizar()');
+        const index = this.alumnos.findIndex((a) => a.id === id);
+        if (index === -1) return undefined;
+
+        this.alumnos[index] = {
+            ...this.alumnos[index],
+            ...datos,
+            id
+
+        };
+        return { ...this.alumnos[index] };
     }
 
     /**
@@ -71,6 +89,10 @@ export class RepositorioAlumnos {
      * @returns {boolean} true si lo eliminó, false si no existía
      */
     eliminar(id) {
-        throw new Error('TODO: implementar RepositorioAlumnos.eliminar()');
+        const index = this.alumnos.findIndex((a) => a.id === id);
+        if (index === -1) return false;
+
+        this.alumnos.splice(index, 1);
+        return true;
     }
 }
