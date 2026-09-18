@@ -6,10 +6,13 @@
 
 :root {
     --color-primario: #4a148c;
+    --color-primario-hover: #6a1b9a;
     --color-fondo: #f5f5f7;
     --color-texto: #1f2937;
+    --color-texto-muted: #6b7280;
     --color-error: #c62828;
     --color-ok: #2e7d32;
+    --sombra: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 * { box-sizing: border-box; }
@@ -19,19 +22,35 @@ body {
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
     background: var(--color-fondo);
     color: var(--color-texto);
+    line-height: 1.5;
 }
-
 header {
     background: var(--color-primario);
     color: white;
     padding: 16px 24px;
+    box-shadow: var(--sombra);
 }
 
-header h1 { margin: 0 0 4px 0; }
+.header-content{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 { margin: 0 0 4px 0; font-size: 20px; font-weight: 700; }
 header p { margin: 0; opacity: 0.85; font-size: 14px; }
 
-main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+main { max-width: 900px; margin: 32px auto; padding: 0 16px; }
 
+
+.table-responsive{
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    border: 1px solid #e5e7eb;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -41,9 +60,11 @@ table {
     overflow: hidden;
 }
 
-th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
-th { background: #ede7f6; }
-tbody tr:hover { background: #f9fafb; }
+th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+th { background: #ede7f6;  color: #4a148c;font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5em; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #f3e5f5; transition: background 0.2s ease; }
+
 
 button {
     cursor: pointer;
@@ -51,25 +72,56 @@ button {
     border-radius: 6px;
     padding: 8px 14px;
     font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
-#btnNuevo { background: var(--color-primario); color: white; }
+#btnNuevo {  background: var(--color-primario); 
+    color: white; 
+    box-shadow: 0 2px 4px rgba(74, 20, 140, 0.3) }
+
+#btnNuevo:hover { background: var(--color-primario-hover); transform: translateY(-1px); }
+
+.btn-editar { background: #e0f2fe; color: #0369a1; margin-right: 6px; }
+.btn-editar:hover { background: #bae6fd; }
+
+.btn-eliminar { background: #fee2e2; color: #b91c1c; }
+.btn-eliminar:hover { background: #fecaca; }
+
 
 dialog {
     border: none;
     border-radius: 10px;
     padding: 20px 24px;
     min-width: 340px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+dialog::backdrop { background: rgba(15, 23, 42, 0.6);backdrop-filter: blur(4px);  }
 
-label { display: block; margin-top: 10px; font-size: 14px; font-weight: 600; }
-input { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #cbd5e1; border-radius: 6px; }
+dialog h2 { margin: 0 0 16px 0; color: var(--color-primario); font-size: 22px; }
 
-.acciones { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+label { display: block; margin-top: 14px; font-size: 14px; font-weight: 600; color: #4b5563; }
+input { 
+    width: 100%; 
+    padding: 10px; 
+    margin-top: 6px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 8px; 
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+input:focus { outline: none; border-color: var(--color-primario); box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.15); }
 
-#mensaje { min-height: 20px; font-size: 14px; }
+.acciones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+.acciones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+#mensaje { 
+    min-height: 24px; 
+    font-size: 14px; 
+    padding: 12px 16px; 
+    border-radius: 8px; 
+    margin-bottom: 16px;
+    font-weight: 500;
+}
 #mensaje.error { color: var(--color-error); }
 #mensaje.ok { color: var(--color-ok); }

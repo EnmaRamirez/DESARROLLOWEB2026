@@ -18,6 +18,7 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
+import { pathToFileURL } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -84,7 +85,8 @@ beforeEach(async () => {
     global.Event = dom.window.Event;
 
     // Ejecutar app.js (cache-busting para re-ejecutarlo en cada test)
-    await import(`${join(publicDir, 'app.js')}?t=${Date.now()}-${Math.random()}`);
+    const rutaEsModule = pathToFileURL(join(publicDir, 'app.js')).href;
+    await import(`${rutaEsModule}?t=${Date.now()}-${Math.random()}`);
     dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
     await esperar();
 });
