@@ -1,0 +1,19 @@
+{
+  "name": "tarea-express-crud-alumnos",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tarea: CRUD REST API de Alumnos con Express + sitio estático — Desarrollo Web Sesión 7",
+  "scripts": {
+    "start": "node --env-file=config.env src/index.js",
+    "dev": "node --watch --env-file=config.env src/index.js",
+    "test": "node --test"
+  },
+  "keywords": ["umg", "express", "rest-api", "fetch", "dialogs", "middleware", "tarea"],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0"
+  }
+}
